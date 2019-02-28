@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import main from '../pages/main'
-import home from '../pages/home/home'
-import videoCenter from '../pages/videoCenter/video-center'
-import microNews from '../pages/microNews/micro-news'
+import news from '../pages/news/news'
+import propertyCenter from '../pages/propertyCenter/property-center'
 import userCenter from '../pages/userCenter/user-center'
 import accelerometer from '../pages/examples/accelerometer'
 import launch from '../pages/launch'
 import addNews from '../pages/mock/add-news'
-import newsDetail from '../pages/home/news-detail'
-import search from '../pages/home/search'
+import newsDetail from '../pages/news/news-detail'
+import search from '../pages/news/search'
 Vue.use(Router)
 
 export default new Router({
@@ -26,25 +25,17 @@ export default new Router({
         keepAlive: true
       },
       children: [{
-        path: 'home',
-        name: 'home',
-        component: home,
+        path: 'news',
+        name: 'news',
+        component: news,
         meta: {
           exit: true,
           keepAlive: false
         }
       }, {
-        path: 'video_center',
-        name: 'video_center',
-        component: videoCenter,
-        meta: {
-          exit: true,
-          keepAlive: false
-        }
-      }, {
-        path: 'micro_news',
-        name: 'micro_news',
-        component: microNews,
+        path: 'property_center',
+        name: 'property_center',
+        component: propertyCenter,
         meta: {
           exit: true,
           keepAlive: false

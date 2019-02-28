@@ -8,24 +8,6 @@
 	        <van-icon name="arrow" />
 	      </div>
 	    </div>
-	    <div class="user-tools">
-	      <!--start tools -->
-      <div class="tool-item">
-          <span>{{$root.user.dynamic.length}}</span>
-          <span class="dark-grey">动态</span>
-        </div>
-        
-        <div class="tool-item">
-          <span>{{$root.user.followers.length}}</span>
-          <span class="dark-grey">粉丝</span>
-        </div>
-        
-        <div class="tool-item" @click="toggleTheme">
-          <span>{{$root.user.watchers.length}}</span>
-          <span class="dark-grey">七天访客</span>
-        </div>
-      <!--end tools -->
-	    </div>
 	  </div>
 	  <div v-else class="user-background">
       <div class="user-cell" @click="routeLogin">
@@ -36,58 +18,15 @@
         </div>
       </div>
       <div class="user-tools">
-        <!--start tools -->
-      <div class="tool-item">
-          <span>0</span>
-          <span class="dark-grey">动态</span>
-        </div>
-        
-        <div class="tool-item">
-          <span>0</span>
-          <span class="dark-grey">粉丝</span>
-        </div>
-        
-        <div class="tool-item" @click="toggleTheme">
-          <span>0</span>
-          <span class="dark-grey">七天访客</span>
-        </div>
-      <!--end tools -->
       </div>
     </div>
-    
-		<div class="tools-container">
-		  <!--start tools -->
-		  <div class="tool-item">
-        <van-icon name="like-o" class="icon icon-collection"/>
-        <span>收藏</span>
-      </div>
-      
-      <div class="tool-item">
-        <van-icon name="clock" class="icon icon-history"/>
-        <span>历史</span>
-      </div>
-      
-      <div class="tool-item" @click="toggleTheme">
-        <van-icon name="password-not-view" class="icon icon-theme"/>
-        <span>夜间</span>
-      </div>
-      
-      <div v-show="false" class="tool-item">
-        <van-icon name="password-view" class="icon icon-theme"/>
-        <span>日间</span>
-      </div>
-		  <!--end tools -->
-		</div>
 		
 		<div class="bold-line"></div>
-		<van-cell title="我的关注" is-link />
-		<van-cell title="消息通知" is-link />
+		<van-cell title="我的动态" is-link />
 		<div class="bold-line"></div>
-		<van-cell title="我的钱包" is-link value="手机充值"/>
+		<van-cell title="我的房屋" is-link />
 		<div class="bold-line"></div>
-		<van-cell title="用户反馈" is-link />
-		<van-cell title="系统设置" is-link />
-		<van-cell title="广告设置" is-link />
+		<van-cell title="我的报修" is-link />
 		<div class="bold-line"></div>
 	</div>
 </template>
