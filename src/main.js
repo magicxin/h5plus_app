@@ -11,6 +11,7 @@ import '@/css/_reset.scss'
 import 'video.js/dist/video-js.css'
 
 import utils from 'utils/rest'
+import filters from 'utils/filters'
 
 Vue.config.productionTip = false
 Vue.use(Vant)

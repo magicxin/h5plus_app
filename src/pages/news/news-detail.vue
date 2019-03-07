@@ -5,7 +5,7 @@
 	    <header class="title">{{ news.title }}</header>
       <div class="tool-item">
         <span class="author">{{ news.user&&news.user.nickname }}</span>
-        <time class="date">{{ news.meta&&news.meta.createAt }}</time>
+        <time class="date">{{ news.meta&&news.meta.createAt |timeFormat }}</time>
       </div>
       <div class="content" v-html="news.content"></div>
 	  </div>
@@ -52,6 +52,9 @@
     }
     .content {
       padding:.6rem 0;
+      img {
+        width:100%;
+      }
     }
 	}
 </style>

@@ -6,9 +6,8 @@ import propertyCenter from '../pages/propertyCenter/property-center'
 import userCenter from '../pages/userCenter/user-center'
 import accelerometer from '../pages/examples/accelerometer'
 import launch from '../pages/launch'
-import addNews from '../pages/mock/add-news'
 import newsDetail from '../pages/news/news-detail'
-import search from '../pages/news/search'
+import houseInfo from '../pages/propertyCenter/house-info'
 Vue.use(Router)
 
 export default new Router({
@@ -50,37 +49,14 @@ export default new Router({
         }
       }]
     },
-
     {
-      path: '/accelerometer',
-      name: 'accelerometer',
-      component: accelerometer
-    },
-    {
-      path: '/launch',
-      name: 'launch',
-      component: launch
-    },
-    {
-      path: '/add_news',
-      name: 'add_news',
-      component: addNews
-    },
-    {
-      path: '/news_detail/:_id',
-      name: 'news_detail',
-      component: newsDetail,
-      meta: {
-        keepAlive: false
-      }
-    },
-    {
-      path: '/search',
-      name: 'search',
-      component: search,
-      meta: {
-        keepAlive: false
-      }
-    },
+        path: '/house_info',
+        name: 'house_info',
+        component: houseInfo,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+    }
   ]
 })

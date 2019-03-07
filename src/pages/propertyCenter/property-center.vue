@@ -2,7 +2,7 @@
   <div class="property-center">
     <van-nav-bar title="物业"/>
     <div class="container">
-      <div class="property-item red">
+      <div class="property-item red" @click="routeTo('house_info')">
         <van-icon name="info" size="2rem"/>
         <span>信息查询</span>
       </div>
@@ -36,7 +36,9 @@
       console.log('activated')
     },
     methods: {
-      
+      routeTo(url) {
+        this.$router.push(url)
+      }
     }
   }
 </script>

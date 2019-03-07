@@ -1,12 +1,13 @@
 <template>
 	<div class="news">
-		<header class="ma-header">
+		<!--<header class="ma-header">
       <div class="logo"></div>
       <div class="search" @click="routeTo">
         <van-icon name="search" />
         <div style="margin-left:4px;">爬山偶遇外交部长</div>
       </div>
-    </header>
+    </header>-->
+    <van-nav-bar title="资讯" class="header" />
     <van-tabs v-model="swipe" swipeable>
       <van-tab class="tab-container" ref="$scrolltop" v-scroll v-for="(item,index) in tabs" :title="item.title" :key="index">
           <news-list :type="item.type"></news-list>
@@ -56,6 +57,9 @@
 
 <style lang="scss" scoped>
 	.news {
+	  .header {
+	    
+	  }
 	  .ma-header {
       width: 100%;
       height: 46px;
