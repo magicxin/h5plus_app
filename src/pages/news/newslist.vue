@@ -98,6 +98,7 @@
 			  })
 			},
 			routeTo(id) {
+			  console.log(id)
 			  this.$router.push({
 			    name:'news_detail',
 			    params: {

@@ -8,6 +8,7 @@ import accelerometer from '../pages/examples/accelerometer'
 import launch from '../pages/launch'
 import newsDetail from '../pages/news/news-detail'
 import houseInfo from '../pages/propertyCenter/house-info'
+import signin from '../pages/userCenter/signin'
 Vue.use(Router)
 
 export default new Router({
@@ -53,6 +54,24 @@ export default new Router({
         path: '/house_info',
         name: 'house_info',
         component: houseInfo,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+    },
+    {
+        path: '/news_detail/:_id',
+        name: 'news_detail',
+        component: newsDetail,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+    },
+    {
+        path: '/signin',
+        name: 'signin',
+        component: signin,
         meta: {
           exit: true,
           keepAlive: false

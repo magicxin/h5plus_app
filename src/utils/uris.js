@@ -12,4 +12,6 @@ export default{
   searchNews:'/community_manage/news/search',
   deleteNews:'/community_manage/news/delete',
   searchNewsById:'/community_manage/news/searchById',
+  // 物业
+  searchHouse:'/community_manage/house/search',
 }

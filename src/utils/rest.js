@@ -5,7 +5,6 @@ import config from '../../config'
 Vue.$axios = Vue.prototype.$axios = axios
 
 function axiosGet(url, data) {
-  console.log(url)
   return new Promise((resolve, reject) => {
     Vue.$axios.get(config.hostname + url, data).then(res => {
       if(res.data.code === 200) {
