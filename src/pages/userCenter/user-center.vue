@@ -1,15 +1,15 @@
 <template>
 	<div class="user-center">
-	  <div v-if="$root.user" class="user-background">
-	    <div class="user-cell">
-	      <div class="avatar"><img :src="addPath($root.user.avatar)"/></div>
-	      <div class="nickname">{{$root.user.nickname}}</div>
+	  <div class="user-background">
+	    <div class="user-cell" @click="$router.push('user-info')">
+	      <div class="avatar"><img :src="addPath(user.avatar)"/></div>
+	      <div class="nickname">{{user.nickname}}</div>
 	      <div class="icon flex-row flex-center">
 	        <van-icon name="arrow" />
 	      </div>
 	    </div>
 	  </div>
-	  <div v-else class="user-background">
+	  <!--<div v-else class="user-background">
       <div class="user-cell" @click="routeLogin">
         <div class="avatar"><img src="../../../static/img/avatar.png"/></div>
         <div class="nickname">请登录</div>
@@ -19,15 +19,18 @@
       </div>
       <div class="user-tools">
       </div>
-    </div>
-		
+    </div>-->
 		<div class="bold-line"></div>
-		<van-cell title="我的动态" is-link />
+		<van-cell title="我的动态" is-link to="dynamic"/>
 		<div class="bold-line"></div>
-		<van-cell title="我的房屋" is-link />
+		<van-cell title="我的房屋" is-link to="house_info"/>
 		<div class="bold-line"></div>
 		<van-cell title="我的报修" is-link />
 		<div class="bold-line"></div>
+		<van-cell title="修改密码" is-link to="reset-password"/>
+    <div class="bold-line"></div>
+		
+		<van-button class="btn" size="large" type="primary" @click="signout">退出登录</van-button>
 	</div>
 </template>
 
@@ -36,7 +39,7 @@
 		name: 'user-center',
 		data() {
 			return {
-        
+        user:this.$store.state.admin.user
 			}
 		},
 		created() {
@@ -45,6 +48,11 @@
 		methods: {
 			toggleTheme() {
 			  this.$root.theme = this.$root.theme === 'theme1' ? 'theme' : 'theme1'
+			},
+			signout() {
+			  this.$store.commit('admin/updateUser',null)
+			  this.$toast('请重新登录！')
+			  this.$router.push('signin')
 			}
 		}
 	}
@@ -113,6 +121,9 @@
 	    width:100vw;
 	    height:10px;
 	    background-color:#F4F5F7;
+	  }
+	  .btn {
+	    margin-top:2rem;
 	  }
 	}
 </style>

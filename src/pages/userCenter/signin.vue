@@ -57,14 +57,16 @@
         this.$root.showLoginBox = false
       },
       login() {
-        this.$axios.post(this.addHost('/headline/user/login'), {
+        this.$post(this.addHost('/community_manage/user/login'), {
             password: this.password,
             username: this.username
           })
           .then(res => {
-            console.log(res.data)
-            this.$root.user = res.data.data
-            this.$root.showLoginBox = false
+            this.$store.commit('admin/updateUser',res)
+            this.$router.push('main')
+          })
+          .catch(err=>{
+            this.$toast(err.message)
           })
       }
     }

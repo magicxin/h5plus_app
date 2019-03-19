@@ -1,9 +1,9 @@
 {
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H550B6C5A", //应用的标识，创建应用时自动生成，勿手动修改 
-    "name": "magic-h5plus", //应用名称，程序桌面图标名称 
+    "name": "小区物业", //应用名称，程序桌面图标名称 
     "version": {
-        "name": "0.0.2", //应用版本名称 
+        "name": "0.0.3", //应用版本名称 
         "code": "20302" //应用版本号 
     },
     "description": "magic-h5plus 框架", //应用描述信息 

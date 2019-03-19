@@ -7,8 +7,12 @@ import userCenter from '../pages/userCenter/user-center'
 import accelerometer from '../pages/examples/accelerometer'
 import launch from '../pages/launch'
 import newsDetail from '../pages/news/news-detail'
+import newsCreate from '../pages/news/news-create'
 import houseInfo from '../pages/propertyCenter/house-info'
 import signin from '../pages/userCenter/signin'
+import userInfo from '../pages/userCenter/user-info'
+import resetPassword from '../pages/userCenter/reset-password'
+import dynamic from '../pages/news/dynamic'
 Vue.use(Router)
 
 export default new Router({
@@ -69,9 +73,45 @@ export default new Router({
         }
     },
     {
+        path: '/news_create',
+        name: 'news_create',
+        component: newsCreate,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+    },
+    {
         path: '/signin',
         name: 'signin',
         component: signin,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+    },
+    {
+        path: '/user-info',
+        name: 'user-info',
+        component: userInfo,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+    },
+    {
+        path: '/reset-password',
+        name: 'reset-password',
+        component: resetPassword,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+    },
+    {
+        path: '/dynamic',
+        name: 'dynamic',
+        component: dynamic,
         meta: {
           exit: true,
           keepAlive: false

@@ -89,6 +89,7 @@ module.exports = {
       'components':path.resolve(__dirname,'../src/components'),
       'utils': path.resolve(__dirname,'../src/utils'),
       'controller': path.resolve(__dirname,'../src/controller'),
+      'store': path.resolve(__dirname,'../src/store'),
     },
     extensions: ['*', '.js', '.vue', '.json']
   },

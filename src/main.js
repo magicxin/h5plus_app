@@ -4,29 +4,38 @@ import App from './App'
 import router from './router'
 import Vant from 'vant'
 import FastClick from 'fastclick';
-import VueVideoPlayer from 'vue-video-player'
+import store from 'store'
 //import '@/css/common.scss'
 import 'vant/lib/index.css'
 import '@/css/_reset.scss'
-import 'video.js/dist/video-js.css'
 
 import utils from 'utils/rest'
 import filters from 'utils/filters'
 
 Vue.config.productionTip = false
 Vue.use(Vant)
-Vue.use(VueVideoPlayer, /* {
-  options: global default options,
-  events: global videojs events
-} */)
 FastClick.attach(document.body);
 
 import init from './utils/init'
+
+router.beforeEach((to,from,next)=>{
+  let user = store.state.admin.user
+  if(user) {
+    next()
+  }else {
+    if(to.name === 'signin') {
+      next()
+    }else {
+      router.push('signin')
+    }
+  }
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
+  store: store,
   template: '<App/>',
   data() {
     return{

@@ -1,4 +1,5 @@
 export default{
+  // 用户鉴权
   login:'/community_manage/user/login',
   signout:'/community_manage/user/signout',
   signin:'/community_manage/user/create',
@@ -6,7 +7,7 @@ export default{
   checkUser:'/community_manage/user/check',
   changeAuth:'/community_manage/user/changeAuth',
   update:'/community_manage/user/update',
-  
+  resetPassword:'/community_manage/user/reset_pass',
   // 资讯
   saveNews:'/community_manage/news/save',
   searchNews:'/community_manage/news/search',

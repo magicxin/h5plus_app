@@ -6,7 +6,7 @@
         <van-icon name="info" size="2rem"/>
         <span>信息查询</span>
       </div>
-      <div class="property-item blue">
+      <div class="property-item blue" @click="routeTo('news_create')">
         <van-icon name="add-square" size="2rem"/>
         <span>创建资讯</span>
       </div>
