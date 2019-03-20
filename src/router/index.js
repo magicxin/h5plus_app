@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import main from '../pages/main'
 import news from '../pages/news/news'
 import propertyCenter from '../pages/propertyCenter/property-center'
+import fixPost from '../pages/propertyCenter/fix-post'
 import userCenter from '../pages/userCenter/user-center'
 import accelerometer from '../pages/examples/accelerometer'
 import launch from '../pages/launch'
@@ -44,7 +45,7 @@ export default new Router({
           exit: true,
           keepAlive: false
         }
-      }, {
+      },{
         path: 'user_center',
         name: 'user_center',
         component: userCenter,
@@ -116,6 +117,14 @@ export default new Router({
           exit: true,
           keepAlive: false
         }
-    }
+    },{
+        path: '/fix_post',
+        name: 'fix_post',
+        component: fixPost,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+      }, 
   ]
 })

@@ -11,7 +11,7 @@
         <span>创建资讯</span>
       </div>
       <div class="property-item grey">
-        <van-icon name="bell" size="2rem" />
+        <van-icon name="bell" size="2rem" @click="routeTo('fix_post')"/>
         <span>报修</span>
       </div>
     </div>
