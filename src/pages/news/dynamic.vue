@@ -1,6 +1,6 @@
 <template>
 	<div class="dynamic">
-	  <van-nav-bar title="用户中心" left-arrow @click-left="$router.back()" />
+	  <van-nav-bar title="我的动态" left-arrow @click-left="$router.back()" />
 	  <!--<van-pull-refresh class="list-container" v-model="isLoading" @refresh="getNewsList">-->
     <!-- content goes here -->
 	  <jc-loadmore v-scroll ref="scroll" class="list-container" :onRefresh="refresh" :onInfinite="loadmore">
@@ -38,21 +38,16 @@
 		components: {jcLoadmore,jcEmpty},
 		data() {
 			return {
+			  user:this.$store.state.admin.user,
 				newsList: [],
         index:0,
         count:5,
         finished:false,
-			}
-		},
-		props: {
-			type: {
-				type: String,
-				default: "all",
-				validator: val => ["", "1", "2"].indexOf(val) > -1
+        type: ''
 			}
 		},
 		created() {
-		  searchNews.bind(this)({type:this.type,count:this.count,index:this.index}).then(res=>{
+		  searchNews.bind(this)({type:this.type,count:this.count,index:this.index,userId:this.user._id}).then(res=>{
 		    console.log(res.news)
 		    this.newsList = res.news
 		    if(res.length === this.newsList.length) {
@@ -73,7 +68,7 @@
 			loadmore(done) {
 			  if(!this.finished) {
 			    this.index++
-          this.getNewsList({type:this.type,count:this.count,index:this.index})
+          this.getNewsList({type:this.type,count:this.count,index:this.index,userId:this.user._id})
           .then(res=>{
             this.newsList = this.newsList.concat(res.news)
             if(res.length === this.newsList.length) {
@@ -85,7 +80,7 @@
 			},
 			refresh(done) {
 			  this.finished = false
-			  this.getNewsList()
+			  this.getNewsList({type:this.type,count:this.count,index:this.index,userId:this.user._id})
           .then(res=>{
             this.newsList = res.news
             done()
@@ -123,6 +118,9 @@
 	    overflow: scroll;
       -webkit-overflow-scrolling : touch;
 	  }*/
+	 .list-container {
+	   margin-top:50px;
+	 }
 		.card {
 			display:flex;
 			padding:14px;

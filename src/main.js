@@ -23,7 +23,7 @@ router.beforeEach((to,from,next)=>{
   if(user) {
     next()
   }else {
-    if(to.name === 'signin') {
+    if(to.name === 'signin' || to.name === 'signup') {
       next()
     }else {
       router.push('signin')

@@ -1,41 +1,69 @@
 <template>
   <div class="fix-post">
-    <van-nav-bar left-arrow  @click-left="$router.back()" title="保修"/>
+    <van-nav-bar left-arrow  @click-left="$router.back()" title="报修"/>
     <div class="content">
       <header class="header">
         <div class="border-line"></div>
         <span>报修信息</span>
       </header>
       <!--<van-field v-model="house.community" left-icon="contact" label="房主" readonly/>-->
-      <van-field v-model="house.community" left-icon="contact" label="住址" readonly/>
-      <van-field v-model="house.community" left-icon="contact" label="联系电话" readonly/>
-      <van-field v-model="house.community" left-icon="contact" label="问题描述" readonly/>
+      <van-field v-model="house.address" left-icon="contact" placeholder="请输入" label="住址"/>
+      <van-field v-model="house.phoneNumber" left-icon="contact" placeholder="请输入" label="联系电话"/>
+      <van-field v-model="house.truble" left-icon="contact" placeholder="请输入" label="问题描述" type="textarea" autosize/>
       
-      <van-button class="mt-20" size="large" type="primary" @click="submit">提交</van-button>
+      <van-button v-if="house&&house.statu === '0'" class="mt-20" size="large" type="primary" @click="submit" disabled>审核中</van-button>
+      <van-button v-if="house&&house.statu === '1'" class="mt-20" size="large" type="primary" @click="complete">完成</van-button>
+      <van-button v-if="house&&house.statu === '2'" class="mt-20" size="large" type="primary" @click="submit">提交</van-button>
+      <!--<van-button v-if="house&&!house.statu" class="mt-20" size="large" type="primary">提交</van-button>-->
     </div>
   </div>
 </template>
 
 <script>
-  import { searchHouse } from 'controller/propertyCenter/house'
+  import { save,getFix } from 'controller/propertyCenter/fix'
   export default {
     name: 'fix_post',
     data() {
       return {
+        user:this.$store.state.admin.user,
         house: {
-        	community:'111'
-        }
+          address:'',
+        	phoneNumber:'',
+        	truble:'',
+        	userId:this.$store.state.admin.user._id,
+        },
       }
     },
     created() {
-      
+      this.init()
     },
     activated() {
       console.log('activated')
     },
     methods: {
+      init(params) {
+        getFix.bind(this)(Object.assign({},params,{userId:this.user._id})).then(res=>{
+          if(res.fix.length>0) {
+            this.house = res.fix[0]
+          }
+        })
+      },
       submit() {
-      	
+      	save.bind(this)(this.house).then(res=>{
+      	  this.$toast('提交成功！')
+      	})
+      	.catch(err=>{
+      	  this.$toast(err.message)
+      	})
+      },
+      complete() {
+        save.bind(this)({
+          fixId:this.house._id,
+          statu:'2'
+        }).then(res=>{
+          this.$toast('完成维修！')
+          this.$router.back()
+        })
       }
     }
   }

@@ -1,26 +1,27 @@
 <template>
-  <div class="signin">
-    <van-nav-bar title="登录"/>
+  <div class="signup">
+    <van-nav-bar title="注册"/>
       <div class="login-box" ref="loginbox">
         <van-cell-group class="form-box">
           <van-field v-model="username" required clearable label="用户名" placeholder="请输入用户名" />
-          <van-field class="mb-14" v-model="password" type="password" label="密码" placeholder="请输入密码" required />
-          <div @click="signup">用户注册</div>
-          <van-button class="mb-14" size="large" type="danger" @click="login">登录</van-button>
-          <!--<van-button class="mb-14" size="large" @click="cancel">取消</van-button>-->
+          <van-field v-model="password" type="password" label="密码" placeholder="请输入密码" required />
+          <van-field class="mb-14" v-model="repass" type="repass" label="确认密码" placeholder="请输入密码" required />
+          <van-button class="mb-14" size="large" type="danger" @click="submit">注册</van-button>
         </van-cell-group>
       </div>
   </div>
 </template>
 
 <script>
+  import uri from 'utils/uris'
   export default {
     name: 'App',
     data() {
       return {
         count: 0,
         username: '',
-        password: ''
+        password: '',
+        repass:''
       }
     },
     created() {
@@ -57,29 +58,26 @@
       cancel() {
         this.$root.showLoginBox = false
       },
-      login() {
-        this.$post(this.addHost('/community_manage/user/login'), {
-            password: this.password,
-            username: this.username
-          })
+      submit() {
+        this.$post(this.addHost(uri.createUser), {
+          username: this.username,
+          password: this.password,
+          pass:this.repass
+        })
           .then(res => {
-            this.$store.commit('admin/updateUser',res)
-            this.$router.push('main')
+            this.$toast('注册成功！')
+            this.$router.push('login')
           })
           .catch(err=>{
-            this.$toast(err.message)
+             this.$toast(err.message)
           })
-      },
-      signup() {
-        console.log(111)
-        this.$router.push('signup')
       }
     }
   }
 </script>
 
 <style lang="scss">
-  .signin {
+  .signup {
     height:100%;
     /*height:100vh;
   @include bg_color($background-color-theme);*/

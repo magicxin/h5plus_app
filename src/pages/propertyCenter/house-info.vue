@@ -22,13 +22,17 @@
     name: 'house_info',
     data() {
       return {
-        house:{}
+        house:{},
+        user:this.$store.state.admin.user
       }
     },
     created() {
-      searchHouse.bind(this)({userId:'5c733f36a39ff51b50deecdc'}).then(res=>{
+      searchHouse.bind(this)({userId:this.user._id}).then(res=>{
         this.house = res.house
         console.log(res)
+      })
+      .catch(err=>{
+        this.$toast(err.message)
       })
     },
     activated() {

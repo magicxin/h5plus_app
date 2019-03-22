@@ -4,6 +4,7 @@ import main from '../pages/main'
 import news from '../pages/news/news'
 import propertyCenter from '../pages/propertyCenter/property-center'
 import fixPost from '../pages/propertyCenter/fix-post'
+import fixList from '../pages/propertyCenter/fix-list'
 import userCenter from '../pages/userCenter/user-center'
 import accelerometer from '../pages/examples/accelerometer'
 import launch from '../pages/launch'
@@ -11,6 +12,7 @@ import newsDetail from '../pages/news/news-detail'
 import newsCreate from '../pages/news/news-create'
 import houseInfo from '../pages/propertyCenter/house-info'
 import signin from '../pages/userCenter/signin'
+import signup from '../pages/userCenter/signup'
 import userInfo from '../pages/userCenter/user-info'
 import resetPassword from '../pages/userCenter/reset-password'
 import dynamic from '../pages/news/dynamic'
@@ -90,6 +92,14 @@ export default new Router({
           exit: true,
           keepAlive: false
         }
+    },{
+        path: '/signup',
+        name: 'signup',
+        component: signup,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
     },
     {
         path: '/user-info',
@@ -121,6 +131,14 @@ export default new Router({
         path: '/fix_post',
         name: 'fix_post',
         component: fixPost,
+        meta: {
+          exit: true,
+          keepAlive: false
+        }
+      },{
+        path: '/fix_list',
+        name: 'fix_list',
+        component: fixList,
         meta: {
           exit: true,
           keepAlive: false

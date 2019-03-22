@@ -16,7 +16,7 @@
         <footer class="footer">
           <div>
             <van-icon name="contact" class="icon-author"/>
-            <span>{{item.user.nickname}}</span>
+            <span>{{item.user&&item.user.nickname}}</span>
           </div>
           <time>{{item.meta.createAt | timeFormat}}</time>
         </footer>

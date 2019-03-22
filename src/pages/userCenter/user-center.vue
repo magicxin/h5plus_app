@@ -1,7 +1,7 @@
 <template>
 	<div class="user-center">
 	  <div class="user-background">
-	    <div class="user-cell" @click="$router.push('user-info')">
+	    <div class="user-cell" @click="$router.push('user-info')"> <!-- @click="$router.push('user-info')" -->
 	      <div class="avatar"><img :src="addPath(user.avatar)"/></div>
 	      <div class="nickname">{{user.nickname}}</div>
 	      <div class="icon flex-row flex-center">
@@ -24,8 +24,8 @@
 		<van-cell title="我的动态" is-link to="dynamic"/>
 		<div class="bold-line"></div>
 		<van-cell title="我的房屋" is-link to="house_info"/>
-		<div class="bold-line"></div>
-		<van-cell title="我的报修" is-link />
+		<!--<div class="bold-line"></div>
+		<van-cell title="我的报修" is-link />-->
 		<div class="bold-line"></div>
 		<van-cell title="修改密码" is-link to="reset-password"/>
     <div class="bold-line"></div>
