@@ -14,6 +14,7 @@
 </template>
 
 <script>
+  import uri from 'utils/uris'
   export default {
     name: 'App',
     data() {
@@ -58,7 +59,7 @@
         this.$root.showLoginBox = false
       },
       login() {
-        this.$post(this.addHost('/community_manage/user/login'), {
+        this.$post(uri.login, {
             password: this.password,
             username: this.username
           })
@@ -71,7 +72,6 @@
           })
       },
       signup() {
-        console.log(111)
         this.$router.push('signup')
       }
     }

@@ -5,6 +5,7 @@ import router from './router'
 import Vant from 'vant'
 import FastClick from 'fastclick';
 import store from 'store'
+import VConsole from 'vconsole/dist/vconsole.min.js'
 //import '@/css/common.scss'
 import 'vant/lib/index.css'
 import '@/css/_reset.scss'
@@ -12,6 +13,7 @@ import '@/css/_reset.scss'
 import utils from 'utils/rest'
 import filters from 'utils/filters'
 
+let vconsole = new VConsole()
 Vue.config.productionTip = false
 Vue.use(Vant)
 FastClick.attach(document.body);

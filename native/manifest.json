@@ -255,7 +255,7 @@
                 "oauth": { //配置应用使用登录功能，参考http://ask.dcloud.net.cn/article/192 
                     
                 }
-            }
+            },"debug":true
         },"adid":"124602290710"
     },
     "dependencies": {

@@ -14,7 +14,7 @@ const dev = {
 //  origin: 'http://192.168.201.111:3000',
     host: '0.0.0.0',
     hostname: '',
-    port: 8082,
+    port: 8083,
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsRoot:  path.resolve(__dirname, '../native'),
