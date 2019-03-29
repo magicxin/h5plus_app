@@ -13,7 +13,7 @@ import '@/css/_reset.scss'
 import utils from 'utils/rest'
 import filters from 'utils/filters'
 
-let vconsole = new VConsole()
+//let vconsole = new VConsole()
 Vue.config.productionTip = false
 Vue.use(Vant)
 FastClick.attach(document.body);

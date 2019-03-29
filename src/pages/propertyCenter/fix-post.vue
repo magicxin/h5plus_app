@@ -12,8 +12,9 @@
       <van-field v-model="house.truble" left-icon="contact" placeholder="请输入" label="问题描述" type="textarea" autosize/>
       
       <van-button v-if="house&&house.statu === '0'" class="mt-20" size="large" type="primary" @click="submit" disabled>审核中</van-button>
-      <van-button v-if="house&&house.statu === '1'" class="mt-20" size="large" type="primary" @click="complete">完成</van-button>
-      <van-button v-if="house&&house.statu === '2'" class="mt-20" size="large" type="primary" @click="submit">提交</van-button>
+      <van-button v-else-if="house&&house.statu === '1'" class="mt-20" size="large" type="primary" @click="complete">完成</van-button>
+      <van-button v-else-if="house&&house.statu === '2'" class="mt-20" size="large" type="primary" @click="submit">提交</van-button>
+      <van-button v-else class="mt-20" size="large" type="primary" @click="submit">提交</van-button>
       <!--<van-button v-if="house&&!house.statu" class="mt-20" size="large" type="primary">提交</van-button>-->
     </div>
   </div>
@@ -36,6 +37,7 @@
     },
     created() {
       this.init()
+      console.log(this.user)
     },
     activated() {
       console.log('activated')
@@ -43,6 +45,7 @@
     methods: {
       init(params) {
         getFix.bind(this)(Object.assign({},params,{userId:this.user._id})).then(res=>{
+          console.log(res)
           if(res.fix.length>0) {
             this.house = res.fix[0]
           }
